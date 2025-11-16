@@ -745,7 +745,7 @@ document.querySelectorAll(".linkA img").forEach(img => {
           end: "bottom center",
           scrub: true,
           anticipatePin: 1,
-          markers:true
+          // markers:true
         }
       }).from(".section11 img", {
         x:'50%',

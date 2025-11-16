@@ -318,27 +318,18 @@ span.circle { position: fixed; top: 0; left: 0; width: 30px; height: 30px; borde
 .section58 .notebook {transform: scale(0.7);}
 .section58 .notebook .notebook_screen img {position: absolute; left: 0; top: 0;}
 .section58_wrap .textbox {position: absolute; right: 1%; top: 10%; border: 1px solid #000; z-index: 100;} 
-
-
-
-/* SECTION 5 */
 .linkA {
   position: relative;
   z-index: 9999 !important;
   pointer-events: auto !important;
 }
-.linkA a {
-    position: relative; /* z-index를 적용하려면 position 값이 필요합니다 */
-    z-index: 10000; /* linkA보다 높은 값을 줘서 확실하게 최상단으로 올림 */
-    display: inline-block; /* 버튼 이미지 영역을 확실하게 잡기 위해 */
-}
-.pin-spacer {
-    pointer-events: none;
-}
-.linkA, .linkA a { 
-    pointer-events: auto !important; 
-}
+.pin-spacer {pointer-events: none;}
+.linkA, .linkA a { pointer-events: auto !important;}
+.linkA a {position: relative; z-index: 100; display: flex; align-items: center; gap: 5px;}
+.linkA a span {color: #be432f; font-size: 15px;}
 .circle {pointer-events: none;}
+
+/* SECTION 5 */
 .section5 {width: 100%; height: 100vh; position: relative; background: url(../images/section_bg.png) no-repeat center; } 
 .section5 .round {background: #d9ebf7;} 
 .section5 .swim {position: absolute; left: 0; top: 145px; z-index: 1; width: 100%; } 
