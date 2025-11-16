@@ -261,7 +261,8 @@ span.circle { position: fixed; top: 0; left: 0; width: 30px; height: 30px; borde
 .section4 .textbox .font {width: 250px; top: 40%; right: 2%; text-align: right;}
 .section4 .textbox .color {top: 60%; right: 2%; text-align: right;}
 .section4 .textbox .target {top: 80%; right: 2%; text-align: right;}
-.section4 .textbox .click {bottom: 10%; right: 30%; border-radius: 100px; box-shadow: 0 8px 24px 0 rgba(0,0,0,0.32);}
+.section4 .textbox .click { bottom: 10%; right: 30%; border-radius: 100px; box-shadow: 0 8px 24px 0 rgba(0,0,0,0.32);}
+.section4 .textbox .click img {width: 65px;}
 .section4 .svg_box {position: absolute; width: 100%; left: 0; top: 0; }
 .section4 .cover {content: ""; position: absolute; width: 100%; height:50px; background: linear-gradient(180deg, rgba(255,255,255,0), #FFFDF5); bottom: -50px; left: 0; z-index: 7;}
 .section4 .svg_box .part4_left {position: absolute; left: -10%; top: -1px;}
@@ -317,7 +318,7 @@ span.circle { position: fixed; top: 0; left: 0; width: 30px; height: 30px; borde
 .section58_wrap .round { width: 1004px; height: 1004px; border-top-left-radius: 700px; border-top-right-radius: 700px; position: absolute; bottom: 0; left: 118px; transform: translateY(50%); } 
 .section58 .notebook {transform: scale(0.7);}
 .section58 .notebook .notebook_screen img {position: absolute; left: 0; top: 0;}
-.section58_wrap .textbox {position: absolute; right: 1%; top: 10%; border: 1px solid #000; z-index: 100;} 
+.section58_wrap .textbox {position: absolute; right: 1%; top: 10%; z-index: 100;} 
 .linkA {
   position: relative;
   z-index: 9999 !important;
