@@ -148,28 +148,6 @@ ScrollTrigger.matchMedia({
 
 
 
-      // // 기존 timeline (point, plus 애니메이션들)
-      // gsap.timeline({
-      //   scrollTrigger: {
-      //     trigger: ".section2",
-      //     start: "top top",
-      //     end: "bottom top",
-      //     scrub: true,
-      //     pin:true,
-      //   }
-      // })
-      // .from(".section2 .left", { autoAlpha:0, y:30, ease:'sine.inOut' })
-      // .from(".section2 .center", { autoAlpha:0, y:30, ease:'sine.inOut' })
-      // .from(".section2 .right", { autoAlpha:0, y:30, ease:'sine.inOut' })
-      // .to(".section2 .point_1", {x:-217, ease:'sine.inOut'}, 'p1')
-      // .to(".section2 .plus1", {rotate:360, ease:'sine.inOut'}, 'p1')
-      // .to(".section2 .point_2", {x:-300, ease:'sine.inOut'}, 'p2')
-      // .to(".section2 .plus2", {rotate:360, ease:'sine.inOut'}, 'p2')
-      // .to(".section2 .point_3", {x:-70, ease:'sine.inOut'}, 'p3')
-      // .to(".section2 .plus3", {rotate:360, ease:'sine.inOut'}, 'p3')
-      // .to(".section2 .point_4", {x:-310, ease:'sine.inOut'}, 'p4')
-      // .to(".section2 .plus4", {rotate:360, ease:'sine.inOut'}, 'p4');
-
       // SECTION2 애니메이션 (개별 menu-row 기준)
         let sec2TL = gsap.timeline({
           scrollTrigger: {
@@ -292,338 +270,258 @@ ScrollTrigger.matchMedia({
             observer.observe(profile);
 
             
-            // .from(".section3 .profile .circle", {
-            //   scale:0.5,
-            //   delay:100,
-            //   ease: "power2.out"
-            // }).from(".section3 .profile .circle2", {
-            //   scale:1.2,
-            //   delay:100,
-            //   ease: "power2.out"
-            // });
-          
 
 
+  // SECTION 4 양방향 + 반응형 SVG 제어 버전
+  let sec4 = document.querySelector(".section4 .content");
+  let sec4H = sec4.getBoundingClientRect().height;
+  let winH = window.innerHeight;
+  let moveY = sec4H - winH;
 
-// // SECTION 4 양방향 스크롤 애니메이션
-// let sec4 = document.querySelector(".section4 .content");
-// let sec4H = sec4.getBoundingClientRect().height;
-// let winH = window.innerHeight;
-// let moveY = sec4H - winH;
+  // 초기 상태
+  gsap.set(".section4 .textwrap .textbox", { opacity: 0, pointerEvents: "none", position: "absolute" });
 
-// // 초기 상태: 텍스트박스 모두 비활성화
-// gsap.set(".section4 .textwrap .textbox", { opacity: 0, pointerEvents: "none", position: "absolute" });
-
-// // 메인 타임라인
-// let contentAnim = gsap.timeline({
-//   scrollTrigger: {
-//     trigger: ".svg_box",
-//     start: "top top",
-//     end: "+=4000",
-//     scrub: true,
-//     pin: ".section4",
-//     // markers: true,
-//   }
-// });
-
-// // -----------------------------
-// // 1️⃣ 열림
-// // -----------------------------
-// contentAnim
-//   .to(".section4", {
-//     backgroundColor: "#FFFDF5",
-//     ease: "expo.inOut"
-//   }, "open")
-//   .to(".section4 .part4_left", { left: "-1100px", marginTop: "-25%", ease: "expo.inOut" }, "open")
-//   .to(".section4 .part4_right", { right: "-900px", marginTop: "-30%", ease: "expo.inOut" }, "open")
-//   .to(".section4 .part4_left svg", { fill: "#be432f", ease: "expo.inOut" }, "open")
-//   .to(".section4 .part4_right svg", { fill: "#be432f", ease: "expo.inOut" }, "open")
-
-// // -----------------------------
-// // 2️⃣ 이미지1 → 텍스트1
-// // -----------------------------
-//   .to(".section4 .content", {
-//     y: -moveY / 2,
-//     ease: "power1.out",
-//     onUpdate: () => {
-//       let progress = contentAnim.progress();
-//       if (progress > 0.2 && progress < 0.5) {
-//         gsap.set(".section4 .textbox1", { opacity: 1, pointerEvents: "auto", position: "relative" });
-//         gsap.set(".section4 .textbox2", { opacity: 0, pointerEvents: "none", position: "absolute" });
-//       }
-//     }
-//   }, "show1")
-
-// // -----------------------------
-// // 3️⃣ 이미지2 → 텍스트2
-// // -----------------------------
-//   .to(".section4 .content", {
-//     y: -moveY,
-//     ease: "power1.out",
-//     onUpdate: () => {
-//       let progress = contentAnim.progress();
-//       if (progress > 0.5 && progress < 0.8) {
-//         gsap.set(".section4 .textbox1", { opacity: 0, pointerEvents: "none", position: "absolute" });
-//         gsap.set(".section4 .textbox2", { opacity: 1, pointerEvents: "auto", position: "relative" });
-//       }
-//     }
-//   }, "show2")
-
-// // -----------------------------
-// // 4️⃣ 닫힘
-// // -----------------------------
-//   .to(".section4 .part4_left", { left: "-10%", marginTop: "0", ease: "expo.inOut" }, "close")
-//   .to(".section4 .part4_right", { right: "-10%", marginTop: "0", ease: "expo.inOut" }, "close")
-//   .to(".section4 .part4_left svg", { fill: "#FFFDF5", ease: "expo.inOut" }, "close")
-//   .to(".section4 .part4_right svg", { fill: "#FFFDF5", ease: "expo.inOut" }, "close")
-//   .to(".section4 .textwrap .textbox", {
-//     opacity: 0,
-//     pointerEvents: "none"
-//   }, "close")
-//   .to(".section4 .cover", { bottom: 0, ease: "expo.inOut" }, "close");
-
-
-
-
-// SECTION 4 양방향 + 반응형 SVG 제어 버전
-let sec4 = document.querySelector(".section4 .content");
-let sec4H = sec4.getBoundingClientRect().height;
-let winH = window.innerHeight;
-let moveY = sec4H - winH;
-
-// 초기 상태
-gsap.set(".section4 .textwrap .textbox", { opacity: 0, pointerEvents: "none", position: "absolute" });
-
-// 메인 타임라인
-let contentAnim = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".svg_box",
-    start: "top top",
-    end: "+=4000",
-    scrub: true,
-    pin: ".section4",
-    // markers: true,
-  }
-});
-
-// -----------------------------
-// 1️⃣ 열림
-// -----------------------------
-contentAnim
-  .to(".section4", {
-    backgroundColor: "#FFFDF5",
-    ease: "expo.inOut"
-  }, "open")
-
-  .to(".section4 .part4_left", {
-    left: "-1100px",
-    marginTop: "-25%",
-    ease: "expo.inOut",
-    // 👉 열릴 때(스크롤 내릴 때)
-    onStart: () => {
-      if (window.innerWidth <= 1450) {
-        gsap.to(".section4 .part4_left", {
-          autoAlpha: 0, // opacity + visibility
-          duration: 0.6,
-          ease: "power2.out"
-        });
-      }
-    },
-    // 👉 스크롤 역방향으로 올라갈 때 (닫히는 방향 반대로)
-    onReverseComplete: () => {
-      if (window.innerWidth <= 1450) {
-        gsap.to(".section4 .part4_left", {
-          autoAlpha: 1,
-          duration: 0.6,
-          ease: "power2.in"
-        });
-      }
+  // 메인 타임라인
+  let contentAnim = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".svg_box",
+      start: "top top",
+      end: "+=4000",
+      scrub: true,
+      pin: ".section4",
+      // markers: true,
     }
-  }, "open")
+  });
 
-  // .to(".section4 .part4_right", { right: "-900px", marginTop: "-30%", ease: "expo.inOut" }, "open")
-          .to(".section4 .part4_right", {
-            right: () => {
-        if (window.innerWidth <= 1025) return "-95%";
-        else if (window.innerWidth <= 1150) return "-80%";
-        else if (window.innerWidth <= 1450) return "-78%";
-        else if (window.innerWidth <= 1920) return "-50%";
-        else return "-700px";
-      },
-      marginTop: "-30%",
+  // -----------------------------
+  // 1️⃣ 열림
+  // -----------------------------
+  contentAnim
+    .to(".section4", {
+      backgroundColor: "#FFFDF5",
       ease: "expo.inOut"
-          }, "open")
-  .to(".section4 .part4_left svg", { fill: "#be432f", ease: "expo.inOut" }, "open")
-  .to(".section4 .part4_right svg", { fill: "#be432f", ease: "expo.inOut" }, "open")
+    }, "open")
 
-// -----------------------------
-// 2️⃣ 이미지1 → 텍스트1
-// -----------------------------
-  .to(".section4 .content", {
-    y: -moveY / 2,
-    ease: "power1.out",
-    onUpdate: () => {
-      let progress = contentAnim.progress();
-      if (progress > 0.2 && progress < 0.5) {
-        gsap.set(".section4 .textbox1", { opacity: 1, pointerEvents: "auto", position: "relative" });
-        gsap.set(".section4 .textbox2", { opacity: 0, pointerEvents: "none", position: "absolute" });
+    .to(".section4 .part4_left", {
+      left: "-1100px",
+      marginTop: "-25%",
+      ease: "expo.inOut",
+      // 👉 열릴 때(스크롤 내릴 때)
+      onStart: () => {
+        if (window.innerWidth <= 1450) {
+          gsap.to(".section4 .part4_left", {
+            autoAlpha: 0, // opacity + visibility
+            duration: 0.6,
+            ease: "power2.out"
+          });
+        }
+      },
+      // 👉 스크롤 역방향으로 올라갈 때 (닫히는 방향 반대로)
+      onReverseComplete: () => {
+        if (window.innerWidth <= 1450) {
+          gsap.to(".section4 .part4_left", {
+            autoAlpha: 1,
+            duration: 0.6,
+            ease: "power2.in"
+          });
+        }
       }
-    }
-  }, "show1")
+    }, "open")
 
-// -----------------------------
-// 3️⃣ 이미지2 → 텍스트2
-// -----------------------------
-  .to(".section4 .content", {
-    y: -moveY,
-    ease: "power1.out",
-    onUpdate: () => {
-      let progress = contentAnim.progress();
-      if (progress > 0.5 && progress < 0.8) {
-        gsap.set(".section4 .textbox1", { opacity: 0, pointerEvents: "none", position: "absolute" });
-        gsap.set(".section4 .textbox2", { opacity: 1, pointerEvents: "auto", position: "relative" });
+    // .to(".section4 .part4_right", { right: "-900px", marginTop: "-30%", ease: "expo.inOut" }, "open")
+            .to(".section4 .part4_right", {
+              right: () => {
+          if (window.innerWidth <= 800) return "-95%";
+          else if (window.innerWidth <= 1025) return "-85%";          
+          else if (window.innerWidth <= 1150) return "-70%";
+          else if (window.innerWidth <= 1450) return "-68%";
+          else if (window.innerWidth <= 1900) return "-48%";
+          else return "-700px";
+        },
+        marginTop: "-30%",
+        ease: "expo.inOut"
+            }, "open")
+    .to(".section4 .part4_left svg", { fill: "#be432f", ease: "expo.inOut" }, "open")
+    .to(".section4 .part4_right svg", { fill: "#be432f", ease: "expo.inOut" }, "open")
+
+  // -----------------------------
+  // 2️⃣ 이미지1 → 텍스트1
+  // -----------------------------
+    .to(".section4 .content", {
+      y: -moveY / 2,
+      ease: "power1.out",
+      onUpdate: () => {
+        let progress = contentAnim.progress();
+        if (progress > 0.2 && progress < 0.5) {
+          gsap.set(".section4 .textbox1", { opacity: 1, pointerEvents: "auto", position: "relative" });
+          gsap.set(".section4 .textbox2", { opacity: 0, pointerEvents: "none", position: "absolute" });
+        }
       }
-    }
-  }, "show2")
+    }, "show1")
 
-// -----------------------------
-// 4️⃣ 닫힘
-// -----------------------------
-  .to(".section4 .part4_left", {
-    left: "-10%",
-    marginTop: "0",
-    ease: "expo.inOut",
-    // 👉 닫힐 때(스크롤 아래에서 위로)
-    onStart: () => {
-      if (window.innerWidth <= 1450) {
-        gsap.to(".section4 .part4_left", {
-          autoAlpha: 1,
-          duration: 0.6,
-          ease: "power2.in"
-        });
+  // -----------------------------
+  // 3️⃣ 이미지2 → 텍스트2
+  // -----------------------------
+    .to(".section4 .content", {
+      y: -moveY,
+      ease: "power1.out",
+      onUpdate: () => {
+        let progress = contentAnim.progress();
+        if (progress > 0.5 && progress < 0.8) {
+          gsap.set(".section4 .textbox1", { opacity: 0, pointerEvents: "none", position: "absolute" });
+          gsap.set(".section4 .textbox2", { opacity: 1, pointerEvents: "auto", position: "relative" });
+        }
       }
-    },
-    // 👉 스크롤 역방향(다시 열릴 때)
-    onReverseComplete: () => {
-      if (window.innerWidth <= 1450) {
-        gsap.to(".section4 .part4_left", {
-          autoAlpha: 0,
-          duration: 0.6,
-          ease: "power2.out"
-        });
+    }, "show2")
+
+  // -----------------------------
+  // 4️⃣ 닫힘
+  // -----------------------------
+    .to(".section4 .part4_left", {
+      left: "-10%",
+      marginTop: "0",
+      ease: "expo.inOut",
+      // 👉 닫힐 때(스크롤 아래에서 위로)
+      onStart: () => {
+        if (window.innerWidth <= 1450) {
+          gsap.to(".section4 .part4_left", {
+            autoAlpha: 1,
+            duration: 0.6,
+            ease: "power2.in"
+          });
+        }
+      },
+      // 👉 스크롤 역방향(다시 열릴 때)
+      onReverseComplete: () => {
+        if (window.innerWidth <= 1450) {
+          gsap.to(".section4 .part4_left", {
+            autoAlpha: 0,
+            duration: 0.6,
+            ease: "power2.out"
+          });
+        }
       }
-    }
-  }, "close")
+    }, "close")
 
-  .to(".section4 .part4_right", { right: "-10%", marginTop: "0", ease: "expo.inOut" }, "close")
-  .to(".section4 .part4_left svg", { fill: "#FFFDF5", ease: "expo.inOut" }, "close")
-  .to(".section4 .part4_right svg", { fill: "#FFFDF5", ease: "expo.inOut" }, "close")
-  .to(".section4 .textwrap .textbox", { opacity: 0, pointerEvents: "none" }, "close")
-  .to(".section4 .cover", { bottom: 0, ease: "expo.inOut" }, "close");
-
+    .to(".section4 .part4_right", { right: "-10%", marginTop: "0", ease: "expo.inOut" }, "close")
+    .to(".section4 .part4_left svg", { fill: "#FFFDF5", ease: "expo.inOut" }, "close")
+    .to(".section4 .part4_right svg", { fill: "#FFFDF5", ease: "expo.inOut" }, "close")
+    .to(".section4 .textwrap .textbox", { opacity: 0, pointerEvents: "none" }, "close")
+    .to(".section4 .cover", { bottom: 0, ease: "expo.inOut" }, "close");
 
 
-
-  
-
-
-      //svg 변형
-        // .to(".section4 .part4_right svg path", {
-        //   attr: { d: "M572 141.5C572 39.9 491 3.83333 450.5 -1.5H1728.5V2004H389.5C439.5 2004 450.5 1972.5 482.5 1824C514.5 1675.5 628 1702.5 720.5 1758C813 1813.5 993 1887.5 993 1729C993 1570.5 744 1628.5 572 1652.5C400 1676.5 450.5 1438 466.5 1292.5C482.5 1147 471.5 1059.5 482.5 998.5C493.5 937.5 612 821.5 419 887.5C226 953.5 172.5 795 209.5 726C246.5 657 217.5 570 157 570C96.5 570 80 541 80 504C80 467 109 387.5 2760 3740.5C443 361.5 5720 268.5 5720 141.5Z"},
-        //   ease:'expo.inOut'
-        // },'part4')
-        // gsap.timeline({
-        //     scrollTrigger: {
-        //       trigger: ".section5",
-        //       start: "top top",
-        //       end: "center top",
-        //       scrub: true,
-        //       pin:true,
-        //       markers:true,
-        //     }
-        //   })
 
 
 
      // section 5~8
-        let pointLine = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".section58_wrap",
-          start: "top top",
-          end: "+=200% top",   // 스크롤 길이
-          scrub: true,
-          pin: '.point_top',
-          anticipatePin: 1,
+let pointLine = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".section58_wrap",
+    start: "top top",
+    end: "+=200% top",
+    scrub: true,
+    pin: '.point_top',
+    anticipatePin: 1,
+  }
+})
+.to(".point_star", {
+  left:'95%',
+  scale:1.5,
+  rotate:360,
+  ease:'linear'
+});
+
+document.querySelectorAll('.section58').forEach(function(part58){
+  let part58Round = part58.querySelector('.round');
+  let part58Text = part58.querySelector('.textbox');
+
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: part58,
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+      pin: true,
+      anticipatePin: 1,
+      pinSpacing: true,
+      // ✅ pin 된 동안 클릭 방해 요소 제거
+      onEnter: () => {
+        let spacer = part58.parentElement;
+        if (spacer && spacer.classList.contains("pin-spacer")) {
+          spacer.style.pointerEvents = "none";
         }
-      })
-      .to(".point_star", {
-        left:'95%',
-        scale:1.5,
-        rotate:360,
-        ease:'linear'
-      })
-
-
-
-
-
-
-      document.querySelectorAll('.section58').forEach(function(part58){
-        let part58Round = part58.querySelector('.round')
-        let part58Text = part58.querySelector('.textbox')
-        gsap.timeline({
-        scrollTrigger: {
-          trigger: part58,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-          pin:true,
-          anticipatePin: 1,
-          pinSpacing:true,
-          // markers:true,
+        gsap.set(part58.querySelectorAll(".linkA"), { pointerEvents: "auto", zIndex: 9999 });
+      },
+      onLeave: () => {
+        let spacer = part58.parentElement;
+        if (spacer && spacer.classList.contains("pin-spacer")) {
+          spacer.style.pointerEvents = "auto";
         }
-      }).to(part58Round, {
-          x:800,
-          y:-0,
-          width:800,
-          height:800,
-          duration:5,
-          borderRadius:'50%',
-          ease:'expo.inOut'
-        }, 'part5')
-      .to(part58Text, {
-          opacity:1,
-          duration:5,
-          ease:'expo.inOut'
-        }, 'part5')
+      },
+      onEnterBack: () => {
+        let spacer = part58.parentElement;
+        if (spacer && spacer.classList.contains("pin-spacer")) {
+          spacer.style.pointerEvents = "none";
+        }
+        gsap.set(part58.querySelectorAll(".linkA"), { pointerEvents: "auto", zIndex: 9999 });
+      },
+      onLeaveBack: () => {
+        let spacer = part58.parentElement;
+        if (spacer && spacer.classList.contains("pin-spacer")) {
+          spacer.style.pointerEvents = "auto";
+        }
+      },
+    }
+  });
+
+  tl.to(part58Round, {
+      x:800,
+      y:0,
+      width:800,
+      height:800,
+      duration:5,
+      borderRadius:'50%',
+      ease:'expo.inOut'
+    }, 'part5')
+  .to(part58Text, {
+      opacity:1,
+      duration:5,
+      ease:'expo.inOut'
+    }, 'part5');
+
+  part58.querySelectorAll(".notebook_screen").forEach(mockup => {
+    let img = mockup.querySelector("img");
+    let imgHeight = img.getBoundingClientRect().height;
+    let parentHeight = mockup.getBoundingClientRect().height;
+    let moveY = imgHeight - parentHeight;
+
+    gsap.fromTo(img, {
+      y: -(parentHeight + imgHeight)
+    }, {
+      y: 0,
+      ease: "slow.out",
+      scrollTrigger: {
+        trigger: mockup,
+        start: "top bottom",
+        end: "top top",
+        scrub: true,
+      }
+    });
+  });
+});
+
+// ✅ hover 애니메이션 그대로
+document.querySelectorAll(".linkA img").forEach(img => {
+  img.addEventListener("mouseenter", () => {
+    gsap.to(img, { scale: 1.3, duration: 0.3, ease: "power2.out" });
+  });
+  img.addEventListener("mouseleave", () => {
+    gsap.to(img, { scale: 1, duration: 0.3, ease: "power2.in" });
+  });
+});
 
 
-        
-        part58.querySelectorAll(".notebook_screen").forEach(mockup => {
-        let img = mockup.querySelector("img");
-
-        let imgHeight = img.getBoundingClientRect().height;
-        let parentHeight = mockup.getBoundingClientRect().height;
-        let moveY = imgHeight - parentHeight;
-
-        // fromTo: 맨 아래 → top 0에서 멈춤
-        gsap.fromTo(img, {
-          y: -(parentHeight + imgHeight)   // 맨 아래 (음수값)
-        }, {
-          y: 0,                         // 부모의 top과 맞춰 멈춤
-          ease: "none",
-          ease:'slow.out',
-          scrollTrigger: {
-            trigger: mockup,
-            start: "top bottom",
-            end: "top top",
-            scrub: true,
-          }
-        });
-      });
-
-
-      })
+      
 
 
 
@@ -847,7 +745,7 @@ contentAnim
           end: "bottom center",
           scrub: true,
           anticipatePin: 1,
-          // markers:true
+          markers:true
         }
       }).from(".section11 img", {
         x:'50%',
