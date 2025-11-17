@@ -559,7 +559,38 @@ span.circle { position: fixed; top: 0; left: 0; width: 30px; height: 30px; borde
  /* media screen */
 
 @media screen and (max-width: 1500px) {
-    body {width: 100%; overflow-x: hidden;}
+
+      .section4 .textwrap {font-size: 25px;}
+      .section4 .textbox .tt_last {font-size: 14px;}
+      .section4 .textbox .lastcolor {display: flex; gap: 1.5rem;}
+        /* 🔁 텍스트박스 전체를 flex로 재정렬 */
+        .section4 .textbox {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end; /* 오른쪽 정렬 */
+          gap: 1.5rem;
+          position: relative; /* absolute 해제 기준 */
+          padding-right: 1.3rem;
+          text-align: right;
+        }
+        /* li 개별요소 absolute 제거 */
+        .section4 .textbox li {
+          position: static !important; /* 완전 해제 */
+          max-width: 400px;
+          top: auto;
+          left: auto;
+          right: auto;
+          bottom: auto;
+          transform: none;
+        }
+      .section4 .textbox li.target {width: 220px;}
+      .section4 .content {text-align: left;}
+      .section4 .svg_box .part4_right {right: -5%; top: -1px;} 
+      .section4 .textbox {position: relative;}
+}
+
+@media screen and (max-width: 1400px) {
+          body {width: 100%; overflow-x: hidden;}
       .centerbox {width: 100%;  }
       .top_red {display: none;}
       .text_portfolio {display: none;}
@@ -602,36 +633,7 @@ span.circle { position: fixed; top: 0; left: 0; width: 30px; height: 30px; borde
       .section3 .note_b .grid-box .info ul li {gap: 0; } 
       .section3 .note_b .grid-box .info .title {display: flex; justify-content: end; align-items: center; }
 
-      .section4 .textwrap {font-size: 25px;}
-      .section4 .textbox .tt_last {font-size: 14px;}
-      .section4 .textbox .lastcolor {display: flex; gap: 1.5rem;}
-        /* 🔁 텍스트박스 전체를 flex로 재정렬 */
-        .section4 .textbox {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end; /* 오른쪽 정렬 */
-          gap: 1.5rem;
-          position: relative; /* absolute 해제 기준 */
-          padding-right: 1.3rem;
-          text-align: right;
-        }
-        /* li 개별요소 absolute 제거 */
-        .section4 .textbox li {
-          position: static !important; /* 완전 해제 */
-          max-width: 400px;
-          top: auto;
-          left: auto;
-          right: auto;
-          bottom: auto;
-          transform: none;
-        }
-      .section4 .textbox li.target {width: 220px;}
-      .section4 .content {text-align: left;}
-      .section4 .svg_box .part4_right {right: -5%; top: -1px;} 
-      .section4 .textbox {position: relative;}
-}
-
-
+} 
 
 @media screen and (max-width: 780px) {
       body {padding: 0 15px; width: 100%; overflow-x: hidden;}
