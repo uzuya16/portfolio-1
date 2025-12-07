@@ -146,7 +146,7 @@ span.circle { position: fixed; top: 0; left: 0; width: 30px; height: 30px; borde
   .menu-row { display: grid; grid-template-columns: 250px 350px 215px; padding: 20px 0; border-bottom: 1px solid #E24126; position: relative;} 
   .menu-row .center h2 { margin: 0 0 10px; font-size: 4rem; font-weight: normal; } 
   .menu-row .center ul { margin: 0; padding: 0; font-size: 2rem; } 
-  .menu-row .right { text-align: center; font-size: 1.6rem; display: flex; gap: 46px; align-items: center; justify-content: center; } 
+  .menu-row .right { text-align: center; font-size: 1.6rem; display: flex; gap: 46px; align-items: center; justify-content: space-between; } 
   .menu-row .right span { font-size: 50px; font-weight: 100; line-height: 26px; } 
   .menu-row .right p { font-size: 1.6rem; } 
   .section2 .menu-box .menu-row .left p.small { font-size: 2rem; white-space: nowrap } 
@@ -169,9 +169,8 @@ span.circle { position: fixed; top: 0; left: 0; width: 30px; height: 30px; borde
 
 
   /* 플러스 + */
-  .plus { position: relative; display: inline-block; width: 20px; height: 20px; } 
-  .plus::before,
-  .plus::after { content: ""; position: absolute; background: #000; } 
+  .plus { position: relative; display: block; width: 20px; height: 20px; will-change: transform;} 
+  .plus::before, .plus::after { content: ""; position: absolute; background: #000; } 
   .plus::before { left: 50%; top: 0; width: 2px; height: 100%; transform: translateX(-50%); } 
   .plus::after { top: 50%; left: 0; height: 2px; width: 100%; transform: translateY(-50%); } 
 
@@ -230,14 +229,14 @@ span.circle { position: fixed; top: 0; left: 0; width: 30px; height: 30px; borde
 .section4 .content {text-align: center;}
 .section4 .content img {max-width: 350px;}
 .section4 .content li:nth-child(1) {padding-bottom: 200px;}
-.section4 .textbox {position: absolute; width: 20%; height: 300px; top: 0; left: 0;}
+.section4 .textbox {position: absolute; width: 20vw; height: 300px; top: 0; left: 0;}
 .section4 .textbox .tt_last {font-size: clamp(1.4rem, 0.5vw + 1.2rem, 1.6rem); white-space: normal; word-break: keep-all; }
 .section4 .textbox li {position: absolute; max-width: 300px ;}
 .section4 .textbox .contri {top: 80%; left: 2%;}
 .section4 .textbox .typo {top: 5%; left: 2%;}
 .section4 .textbox .timeline {top: 60%; left: 2%;}
 .section4 .textbox .review {top: 5%; right: 2%; text-align: right;}  
-.section4 .textbox .font {width: 250px; top: 35%; right: 2%; text-align: right;}
+.section4 .textbox .font {width: 20vw; top: 30%; right: 2%; text-align: right;}
 .section4 .textbox .color {top: 50%; right: 2%; text-align: right;}
 .section4 .textbox .target {top: 70%; right: 2%; text-align: right;}
 .section4 .textbox .click { bottom: 10%; right: 30%; border-radius: 100px; box-shadow: 0 8px 24px 0 rgba(0,0,0,0.32);}
@@ -306,9 +305,9 @@ span.circle { position: fixed; top: 0; left: 0; width: 30px; height: 30px; borde
 .section58 .notebook {transform: scale(0.7);}
 .section58 .notebook .notebook_screen img {position: absolute; left: 0; top: 0;}
 .section58 .textbox {position: absolute; right: 1%; top: 10%; z-index: 100;} 
-.section58 .textbox ul {display: flex; flex-direction: column; gap: 15px; } 
+.section58 .textbox ul {display: flex; flex-direction: column; gap: 15px; width: 40vw;} 
+.section58 .textbox ul li {display: flex; flex-direction: column;} 
 .section58 .textbox ul li img {width: 40px;}
-.section58 .textbox ul li {display: flex; flex-direction: column; width: 562px; } 
 .section58 .textbox ul li .first { font-size: 1.5em; letter-spacing: -1px; color: #be432f; } 
 .section58 .textbox ul li .last { font-size: 2em; color: #292929; display: flex; flex-direction: column;} 
 .section58 .textbox ul li span, p { font-weight: 300; } 
@@ -328,14 +327,14 @@ span.circle { position: fixed; top: 0; left: 0; width: 30px; height: 30px; borde
 
 /* SECTION (6) */
 .section6 {background: none} 
-.section6 .round { background: #cfab8f; } 
+.section6 .round {background: #cfab8f; } 
 .section6 .bread {position: absolute; left: 0; bottom: 20%; z-index: 10; width: clamp(120px, 20vw, 270px);} 
-.section6 .notebook { position: absolute; bottom: 90px; display: flex; flex-direction: column; } 
-.section6 .notebook span { font-family: 'SpoqaHanSansNeo-Thin'; display: block; font-size: 4rem; font-weight: 100; letter-spacing: -0.11em; text-align: center; color: #CD7632; } 
-.section6 .notebook .notebook_screen { position: absolute; top: 12%; left: 11.8%; width: 794px; height: 497px; background: #fff; overflow: hidden; border-radius: 5px; box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); } 
-.section6 .textbox .colors .color_1 { display: block; width: 18px; height: 18px; background: #F2EDE7; border-radius: 18px; margin-left: 15px; } 
-.section6 .textbox .colors .color_2 { display: block; width: 18px; height: 18px; background: #CF4B00; border-radius: 18px; } 
-.section6 .textbox .colors .color_3 { display: block; width: 18px; height: 18px; background: #4D3020; border-radius: 18px; } 
+.section6 .notebook {position: absolute; bottom: 90px; display: flex; flex-direction: column; } 
+.section6 .notebook span {font-family: 'SpoqaHanSansNeo-Thin'; display: block; font-size: 4rem; font-weight: 100; letter-spacing: -0.11em; text-align: center; color: #CD7632; } 
+.section6 .notebook .notebook_screen {position: absolute; top: 12%; left: 11.8%; width: 794px; height: 497px; background: #fff; overflow: hidden; border-radius: 5px; box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); } 
+.section6 .textbox .colors .color_1 {display: block; width: 18px; height: 18px; background: #F2EDE7; border-radius: 18px; margin-left: 15px; } 
+.section6 .textbox .colors .color_2 {display: block; width: 18px; height: 18px; background: #CF4B00; border-radius: 18px; } 
+.section6 .textbox .colors .color_3 {display: block; width: 18px; height: 18px; background: #4D3020; border-radius: 18px; } 
 
 
 
@@ -366,7 +365,7 @@ span.circle { position: fixed; top: 0; left: 0; width: 30px; height: 30px; borde
 
 
 /* SECTION (9) */
-.section9 { width: 100%; min-height: 100vh; background: url(../images/section9_bg.png); overflow: hidden; background-size: auto; position: relative;  display: flex; justify-content: center; gap: 40px; padding: 100px 0; margin-bottom: 0;;} 
+.section9 { width: 100%; min-height: 100vh; background: url(../images/section9_bg.png) ; overflow: hidden; background-size: auto; position: relative;  display: flex; justify-content: center; gap: 40px; padding: 100px 0; margin-bottom: 0;;} 
 .section9 .iphone { position: relative; width: 424px; top: 3%; z-index: 10; ;} 
 .section9 .page_view {position: absolute; width: 80%; height:64%; top: 50%; left: 50%; transform: translate(-50%,-67%); border-radius: 40px; overflow: hidden;;} 
 .section9 .page_view img {width: 100%; opacity: 0;} 
@@ -395,15 +394,16 @@ span.circle { position: fixed; top: 0; left: 0; width: 30px; height: 30px; borde
 
 
 
+
 /* SECTION (10) */
 .section10 { width: 100%; height: 100vh; background: url(../images/section10_bg.png) no-repeat; background-size: auto; position: relative; z-index: 0; margin-top: 0; overflow: hidden;} 
 .section10::before { content: ""; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1; position: absolute; top: 0; left: 0; } 
-.section10 .img1 {position: absolute; width: 100%; top: -80px; z-index: 3;pointer-events: none; }
-.section10 .img2 {position: absolute; width: 100%; top: -80px; z-index: 4;pointer-events: none;}
+.section10 .img1 {position: absolute; width: 100%; top: -7%; z-index: 3;pointer-events: none; }
+.section10 .img2 {position: absolute; width: 100%; top: -7%; z-index: 4;pointer-events: none;}
 .section10 .img2 img {}
 .section10 .bannerbox {position: relative; height: 100%; z-index: 2; } 
 .section10 .bannerbox .banner {height: 100%; display: flex; align-items: center; padding-top: 100px; /* gap: 35px; */  } 
-.section10 .bannerbox .banner li {width: 400px; background: #FFFDF5; display: flex; justify-content: center; padding: 30px 35px; z-index: 10; border-radius: 10px; padding-bottom: 150px; border: 1px solid #ececec;flex-shrink: 0; } 
+.section10 .bannerbox .banner li {width: 50vw; background: #FFFDF5; display: flex; justify-content: center; padding: 30px 35px; z-index: 10; border-radius: 10px; padding-bottom: 150px; border: 1px solid #ececec;flex-shrink: 0; } 
 .section10 .bannerbox .banner li img {width: 100%;} 
 .section10 .bannerbox .banner li:hover { background: #BE432F; } 
 .section10 .bannerbox .banner li .red { position: absolute; top: 4%; } 
@@ -426,7 +426,7 @@ span.circle { position: fixed; top: 0; left: 0; width: 30px; height: 30px; borde
   position: relative;
   padding-top: 100px;}
  .section11 .centerbox {text-align: center; padding-top: 100px;}
- .section11 .centerbox img {max-width: 800px; margin: 50px 0 }
+ .section11 .centerbox img {width: 60%; margin: 50px 0 }
 
  
 
@@ -521,7 +521,7 @@ span.circle { position: fixed; top: 0; left: 0; width: 30px; height: 30px; borde
         /* li 개별요소 absolute 제거 */
         .section4 .textbox li {
           position: static !important; /* 완전 해제 */
-          max-width: 400px;
+          /* width: 400px; */
           top: auto;
           left: auto;
           right: auto;
@@ -532,11 +532,13 @@ span.circle { position: fixed; top: 0; left: 0; width: 30px; height: 30px; borde
       .section4 .content {text-align: left;}
       .section4 .svg_box .part4_right {right: -5%; top: -1px;} 
       .section4 .textbox {position: relative;}
+
+      .section58 .textbox ul {width: 38vw;}
 }
 
 @media screen and (max-width: 1400px) {
-          body {width: 100%; overflow-x: hidden;}
-      .centerbox {width: 100%;  }
+       body {width: 100%; overflow-x: hidden;}
+      .centerbox {width: 100%; }
       .top_red {display: none;}
       .text_portfolio {display: none;}
       .text_portfolio svg {display: none;}
@@ -577,6 +579,7 @@ span.circle { position: fixed; top: 0; left: 0; width: 30px; height: 30px; borde
       .section3 .note_b .skills {gap: 15px;}   
       .section3 .note_b .grid-box .info ul li {gap: 0; } 
       .section3 .note_b .grid-box .info .title {display: flex; justify-content: end; align-items: center; }
+      .section58 .textbox ul {width: 33vw;}
 
 } 
 
@@ -595,6 +598,7 @@ span.circle { position: fixed; top: 0; left: 0; width: 30px; height: 30px; borde
       .section4 .textbox li p:first-child {font-weight: bold;}
 
      /* SECTION ( 05 ) */
+      .section58 .textbox ul {width: 100%;}
       .section58 .round {display: none;}
       .section58 {height: auto !important; }
       .section58 .notebook {position: relative; margin: 0 auto; margin-top: clamp(40px, 10vw, 120px);}
@@ -613,7 +617,7 @@ span.circle { position: fixed; top: 0; left: 0; width: 30px; height: 30px; borde
       .section9 .page {display: none;}
       .section9 .textbox {position: relative; top: 0; right: 0; width: 80%; margin: 0; padding: 0;}
       .section9 .textbox ul {width: 90%; margin: 0 auto;;}
-      .section9 .textbox ul li {flex-direction: column !important;}
+      .section9 .textbox ul li {flex-direction: column !important; }
       .section9 .textbox ul li.special { display: flex; flex-direction: row; gap: 20px; } 
 
       .section10 {height: auto; width: 100vw; left: -20px; }
@@ -685,8 +689,8 @@ span.circle { position: fixed; top: 0; left: 0; width: 30px; height: 30px; borde
 }
 
 @media screen and (max-width: 780px) {
-      body {padding: 0 15px; width: 100%; overflow-x: hidden;}
-      .centerbox {width: 100%;  }
+      .wrap {padding: 0 15px; width: 100%; overflow-x: hidden;}
+      .centerbox {width: 100%; }
       .top_red {display: none;}
       .text_portfolio {display: none;}
       .text_portfolio svg {display: none;}

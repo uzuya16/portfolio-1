@@ -186,17 +186,21 @@ ScrollTrigger.matchMedia({
           if (plus) {
             gsap.to(plus, {
               scrollTrigger: {
-                trigger: row,
-                start: "top 90%",   // 더 빨리 발동
-                end: "top 40%",     // row 높이와 무관하게 발동 구간 확보
+                trigger: row.querySelector(".right"),
+                start: "top center",   
+                end: "bottom center",    
                 scrub: true,
                 // markers: true
               },
               rotate: 360,
-              ease: "none"
+              ease: "none",
             });
           }
+          
+
         });
+
+        
     
 
         
@@ -639,7 +643,7 @@ document.querySelectorAll(".linkA img").forEach(img => {
         }
       });
 },
-   "(max-width: 640px)": function() {
+   "(max-width: 840px)": function() {
     console.log("모바일 모드 - GSAP 비활성화됨");
   }
 
