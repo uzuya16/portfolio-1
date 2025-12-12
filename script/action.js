@@ -91,7 +91,7 @@ gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.matchMedia({
   
   // ===== PC 버전 (641px 이상) =====
-  "(min-width: 641px)": function() {
+  "(min-width: 800px)": function() {
             
   // ------------------------------------------------
   // 01. 부드러운 스크롤 (Lenis)
@@ -643,8 +643,16 @@ document.querySelectorAll(".linkA img").forEach(img => {
         }
       });
 },
-   "(max-width: 840px)": function() {
+   "(max-width: 800px)": function() {
     console.log("모바일 모드 - GSAP 비활성화됨");
   }
 
 });
+
+
+
+function setVh() {
+  document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
+}
+setVh();
+window.addEventListener('resize', setVh);
